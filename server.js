@@ -4,11 +4,11 @@ const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server); // attach socket.io
+const io = new Server(server);
 
 const PORT = process.env.PORT || 3000;
 
-// Serve static files
+// Serve static files from "public" (index.html, css, js)
 app.use(express.static("public"));
 
 // Route for index.html
@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
   console.log("✅ A user connected");
 
   socket.on("addPet", (pet) => {
-    io.emit("newPet", pet); // broadcast to everyone
+    io.emit("newPet", pet);
   });
 
   socket.on("deletePet", (name) => {
