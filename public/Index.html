@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Dashboard</title>
+  
+  <!-- Google Fonts: PT Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="design.css"> <!-- Link to the CSS file -->
+
+  <style>
+    /* Apply PT Sans to the whole site */
+    body, h1, h2, h3, p, label, button, table {
+      font-family: 'PT Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pet Dashboard</h1>
+  </header>
+  <div class="container">
+    <div class="left">
+      <div class="rectangle rectangle-left">
+        <h2>Add Pets</h2>
+        <p>Enter details for a new game pet to add to your inventory</p>
+        <div class="input-group">
+          <label for="pet-name">Pet Name:</label>
+          <input type="text" id="pet-name" placeholder="Enter pet name">
+
+          <label for="pet-price">Pet Price:</label>
+          <input type="number" id="pet-price" placeholder="Enter pet price">
+
+          <label for="pet-stock">Pet Stock:</label>
+          <input type="number" id="pet-stock" placeholder="Enter pet stock">
+        </div>
+        <button id="add-button" class="add-button">
+          <span>+</span><br>
+          Add Pet
+        </button>
+      </div>
+
+      <div class="rectangle rectangle-left">
+        <h2>Available Pets</h2>
+        <div class="pet-box">
+          <!-- Dynamically added pet squares will appear here -->
+        </div>
+      </div>
+
+      <div class="rectangle rectangle-left">
+        <h2>Pet Inventory (Current Transaction)</h2>
+        <table class="inventory-table">
+          <thead>
+            <tr>
+              <th>Pet</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Inventory rows will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="rectangle rectangle-right">
+        <h2>Summary & Payment</h2>
+        <div class="summary-section">
+          <p>Subtotal: <span id="subtotal">$0.00</span></p>
+          <p>Discount: <input type="number" id="discount" value="0" min="0"></p>
+          <p><strong>Total: <span id="total">$0.00</span></strong></p>
+        </div>
+
+        <div class="payment-details">
+          <h3>Payment Details (Optional)</h3>
+          <label for="gcash-name">G-Cash Name:</label>
+          <input type="text" id="gcash-name" placeholder="Enter G-Cash Name">
+
+          <label for="gcash-number">G-Cash Number:</label>
+          <input type="text" id="gcash-number" placeholder="Enter G-Cash Number">
+        </div>
+
+        <button id="generate-receipt-button" class="generate-receipt-button">Generate Receipt</button>
+      </div>
+    </div>
+  </div>
+  <!-- Link to the JavaScript file and Socket.io -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="function.js"></script>
+</body>
+</html>

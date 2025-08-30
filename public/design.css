@@ -1,0 +1,357 @@
+header {
+    background-color: #78A3A9; /* Muted teal background */
+    color: rgb(21, 21, 21); /* Title text */
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(32, 28, 28, 0.1);
+}
+
+body {              
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 2;
+}
+
+.right {
+    flex: 1;
+}
+
+.rectangle {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.rectangle-right {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rectangle p {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.rectangle-right h2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.input-group input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 120px;
+}
+
+button#add-pet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #78A3A9; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: auto;
+}
+
+button#add-pet span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+button#add-pet:hover {
+    background-color: #6c9399; /* Slightly darker teal */
+}
+
+.pet-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.pet-item {
+    background-color: #e8f5f5; /* Light teal-tinted background */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 14px;
+}
+
+.pet-item p {
+    margin: 5px 0;
+}
+
+.add-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #78A3A9; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-button span {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.add-button:hover {
+    background-color: #6c9399; /* Darker teal */
+}
+
+.add-pet-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background-color: #78A3A9; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-pet-button span {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.add-pet-button:hover {
+    background-color: #6c9399; /* Darker teal */
+}
+
+.receipt-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-box h2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#receipt-content {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.copy-receipt-button {
+    padding: 10px 15px;
+    background-color: #78A3A9; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.copy-receipt-button:hover {
+    background-color: #6c9399; /* Darker teal */
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.inventory-table th,
+.inventory-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.inventory-table th {
+    background-color: #78A3A9; /* Teal header */
+    color: white;
+    font-weight: bold;
+}
+
+.inventory-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.inventory-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.summary-section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.summary-section p strong {
+    font-size: 18px;
+}
+
+.payment-details {
+    margin-top: 20px;
+}
+
+.payment-details h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.payment-details label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.payment-details input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.generate-receipt-button {
+    padding: 10px 15px;
+    background-color: #78A3A9; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.generate-receipt-button:hover {
+    background-color: #6c9399; /* Darker teal */
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    .left, .right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .rectangle {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .inventory-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    button, .add-button, .generate-receipt-button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+}
+
+/* Make pet names bold and bigger inside Available Pets */
+.pet-item .pet-name {
+  font-weight: bold;
+  font-size: 1.3rem; /* adjust size as you like */
+}
