@@ -4,24 +4,24 @@ const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server); // ✅ attach socket.io to server
+const io = new Server(server); // attach socket.io
 
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from "public" (index.html, css, js)
+// Serve static files
 app.use(express.static("public"));
 
-// Example route
+// Route for index.html
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-// 🔥 Socket.IO events
+// 🔥 Socket.IO events (sync changes between users)
 io.on("connection", (socket) => {
   console.log("✅ A user connected");
 
   socket.on("addPet", (pet) => {
-    io.emit("newPet", pet);
+    io.emit("newPet", pet); // broadcast to everyone
   });
 
   socket.on("deletePet", (name) => {
