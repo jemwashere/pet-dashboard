@@ -4,25 +4,39 @@ const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server); // ✅ attach socket.io to server
 
-app.use(express.static("public")); // serve your index.html + js
+const PORT = process.env.PORT || 3000;
 
-let inventory = [];
+// Serve static files from "public" (index.html, css, js)
+app.use(express.static("public"));
 
+// Example route
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+// 🔥 Socket.IO events
 io.on("connection", (socket) => {
-  console.log("A user connected");
+  console.log("✅ A user connected");
 
-  // Send current inventory to new client
-  socket.emit("updateInventory", inventory);
+  socket.on("addPet", (pet) => {
+    io.emit("newPet", pet);
+  });
 
-  // When someone adds stock
-  socket.on("addStock", (item) => {
-    inventory.push(item);
-    io.emit("updateInventory", inventory); // broadcast to everyone
+  socket.on("deletePet", (name) => {
+    io.emit("deletePet", name);
+  });
+
+  socket.on("restockPet", ({ name, newStock }) => {
+    io.emit("restockPet", { name, newStock });
+  });
+
+  socket.on("disconnect", () => {
+    console.log("❌ A user disconnected");
   });
 });
 
-server.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+server.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
